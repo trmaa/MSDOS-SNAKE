@@ -14,6 +14,7 @@
 #include "vgalib.h"
 #include "snake.h"
 #include "grid.h"
+#include "score.h"
 
 static const int H_OFF = SCREEN_W / 2 - GRID_S * TILE_S / 2;
 static const int V_OFF = SCREEN_H / 2 - GRID_S * TILE_S / 2;
@@ -35,7 +36,7 @@ enum key {
 static enum tile grid[GRID_S][GRID_S] = {0};
 static struct snake *snake = NULL;
 static struct apple apple;
-static const int MAX_POINTS = GRID_S * GRID_S;
+static const unsigned long long MAX_POINTS = GRID_S * GRID_S;
 static int points = 0;
 static int key = 0;
 static enum status game_status = RUNNING;
@@ -188,6 +189,7 @@ render_game()
 main(void)
 {
 	start_game();
+	ask_username();
 
 	vga_init();
 	vga_init_cube();
@@ -217,6 +219,8 @@ main(void)
 	vga_close();
 	
 	end_game();
+
+	store_score(points);
 }
 
 static void
