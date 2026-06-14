@@ -1,5 +1,11 @@
 # DOS SNAKE GAME
 
+## Tech
+
+Uses DOS's graphic mode with VGA colors, no libs. Just modifying raw memory.
+
+## Some info
+
 To use the Makefile, you need to change cc for your compiler. I use alias cc='tcc -I%include% -L%lib%'.
 
 It runs great natively on my i686 machine, however, my x86 doesn't do so well, and the emulator is trash.
