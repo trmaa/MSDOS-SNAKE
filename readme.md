@@ -5,3 +5,5 @@ To use the Makefile, you need to change cc for your compiler. I use alias cc='tc
 It runs great natively on my i686 machine, however, my x86 doesn't do so well, and the emulator is trash.
 
 ![ss.png](screenshot)
+
+If the code runs slow, change the delay() func. call in main.

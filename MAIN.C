@@ -1,3 +1,11 @@
+/*
+ * MAIN.C -- Holds the game status, the snake, the apples...
+ *
+ * Copyright (C) 2026
+ * Author: Pablo Trik Marín (trmaa) <mail@pablotrik.online>
+ * License: GPL 3.0
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <conio.h>

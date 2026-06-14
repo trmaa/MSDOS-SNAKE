@@ -15,6 +15,7 @@ init_snake(struct snake *head, int x, int y)
 	head->next = malloc(sizeof (snake_node));
 	if (head->next == NULL)
 		return;
+
 	head->next->prev = head;
 	head->next->next = NULL;
 	head->next->dir = LEFT;

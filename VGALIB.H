@@ -1,3 +1,15 @@
+/*
+ * VGALIB.C -- VGA palette management & color matching library
+ * (Turbo C 2.01) (8086 real mode, mode 13h)
+ *
+ * Converts 0xRRGGBB ints to the nearest palette index 0x00-0xFF
+ * using Euclidean distance in 6-bit RGB space.
+ *
+ * Copyright (C) 2026
+ * Author: Pablo Trik Marín (trmaa) <mail@pablotrik.online>
+ * License: GPL 3.0
+ */
+
 #ifndef VGALIB_H
 #define VGALIB_H
 

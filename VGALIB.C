@@ -1,16 +1,22 @@
 /*
  * VGALIB.C -- VGA palette management & color matching library
- * (Turbo C 2.01, 8086 real mode, mode 13h)
+ * (Turbo C 2.01) (8086 real mode, mode 13h)
  *
  * Converts 0xRRGGBB ints to the nearest palette index 0x00-0xFF
  * using Euclidean distance in 6-bit RGB space.
+ *
+ * Copyright (C) 2026
+ * Author: Pablo Trik Marín (trmaa) <mail@pablotrik.online>
+ * License: GPL 3.0
  */
+
 #include <dos.h>
 #include "vgalib.h"
 
 static u8 palette[PAL_SIZE][3];	/* software copy of VGA DAC (6 bits/channel) */
 
-void vga_init(void)
+void
+vga_init(void)
 {
 	union REGS rf;
 	int i;
@@ -28,7 +34,8 @@ void vga_init(void)
 	}
 }
 
-void vga_close(void)
+void
+vga_close(void)
 {
 	union REGS rf;
 
@@ -36,7 +43,8 @@ void vga_close(void)
 	int86(0x10, &rf, &rf);
 }
 
-void vga_setpal(int idx, int r, int g, int b)
+void
+vga_setpal(int idx, int r, int g, int b)
 {
 	u8 r6, g6, b6;
 
@@ -54,7 +62,8 @@ void vga_setpal(int idx, int r, int g, int b)
 	palette[idx][2] = b6;
 }
 
-int vga_match(int r, int g, int b)
+int
+vga_match(int r, int g, int b)
 {
 	int best = 0;
 	int best_dist = 999999;
@@ -82,7 +91,8 @@ int vga_match(int r, int g, int b)
 	return best;
 }
 
-void vga_init_cube(void)
+void
+vga_init_cube(void)
 {
 	int ri, gi, bi;
 	int idx;
