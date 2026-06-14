@@ -1,0 +1,5 @@
+default:
+	del *.exe
+	cc *.c
+	ren *.exe snake.exe
+	del *.obj
